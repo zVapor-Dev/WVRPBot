@@ -27,7 +27,7 @@ module.exports = class InteractionCreateEvent extends BaseEvent {
             if (command.slowdown === 0) {
             command.run(client, interaction, args);
             if (config.logCommands === true) {
-              console.log(`${interaction.user.tag} run command ${interaction.commandName} in server ${interaction.guild.name} (${interaction.guild.id}) and in channel ${interaction.channel.name}`)
+              console.log(`${interaction.user.tag} ran command ${interaction.commandName} in server ${interaction.guild.name} (${interaction.guild.id}) and in channel ${interaction.channel.name}`)
             }
             } else {
               if (slowdown.has(`${command.name}: ${interaction.user.id}: guild: ${interaction.guild.id}`)) {
@@ -39,7 +39,7 @@ module.exports = class InteractionCreateEvent extends BaseEvent {
               } else {
                 command.run(client, interaction, args);
                 if (config.logCommands === true) {
-                  console.log(`${interaction.user.tag} run command ${interaction.commandName} in server ${interaction.guild.name} (${interaction.guild.id}) and in channel ${interaction.channel.name}`)
+                  console.log(`${interaction.user.tag} ran command ${interaction.commandName} in server ${interaction.guild.name} (${interaction.guild.id}) and in channel ${interaction.channel.name}`)
                 }
                 slowdown.add(`${command.name}: ${interaction.user.id}: guild: ${interaction.guild.id}`);
                 setTimeout(() => {
@@ -51,7 +51,7 @@ module.exports = class InteractionCreateEvent extends BaseEvent {
             if (config.owners.indexOf(interaction.user.id).toString() !== '-1') {
                 command.run(client, interaction, args);
                 if (config.logCommands === true) {
-                  console.log(`${interaction.user.tag} run command ${interaction.commandName} in server ${interaction.guild.name} (${interaction.guild.id}) and in channel ${interaction.channel.name}`)
+                  console.log(`${interaction.user.tag} ran command ${interaction.commandName} in server ${interaction.guild.name} (${interaction.guild.id}) and in channel ${interaction.channel.name}`)
                 }
             } else {
               interaction.reply("This command only works for Owners!")
@@ -61,7 +61,7 @@ module.exports = class InteractionCreateEvent extends BaseEvent {
           if (config.owners.indexOf(interaction.user.id).toString() !== '-1') {
             command.run(client, interaction, args);
             if (config.logCommands === true) {
-              console.log(`${interaction.user.tag} run command ${interaction.commandName} in server ${interaction.guild.name} (${interaction.guild.id}) and in channel ${interaction.channel.name}`)
+              console.log(`${interaction.user.tag} ran command ${interaction.commandName} in server ${interaction.guild.name} (${interaction.guild.id}) and in channel ${interaction.channel.name}`)
             }
           } else {
             interaction.reply(`Sorry, ${client.user.username} is in DEV mode so you cannot run commands at the moment!`)
